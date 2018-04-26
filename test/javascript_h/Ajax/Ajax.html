@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Ajax</title>
+</head>
+
+<body>
+
+<p>time : <a href="#;" id="time"></a></p>
+<input type="button" id="execute" value="execute">
+
+	<script>
+		// onreadystatechange 해당상태의 변화를 표현
+		// readyState 현재어떤상태에 있다. 4번은 모든통신이 끝낫다를 표현
+		// status 커뮤니케이션의 결과 200번은 성공시에 보여지는문구
+		// querySelector 해당위치를 표현
+		// responseText 서버에서 리턴해주는 정보를 담고있는것
+		
+		/* Ajax Requst 방식 */
+		document.querySelector('input').addEventListener('click' , function(event){
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET' , '파일주소');
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4 && xhr.status === 200){
+				document.querySelector('#time').innerHTML = xhr.responseText;
+			}
+			xhr.send();
+		});
+
+		/* Ajax Post 방식 */
+		document.querySelector('input').addEventListener('click' , function(event) {
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '파일주소');
+			xhr.onreadystatechange = function () {
+				document.querySelector('#time').innerHTML = xhr.responseText;
+			}
+			
+			var data = '';
+			data += 'timezone=' + document.getElementById('timezone').value;
+			data += '&format=' + docuemnt.getElementById('format').value;
+
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send(data);
+
+		});
+		
+	</script>
+
+<?php
+	$d1 = new DateTime;
+	$d1 -> setTimezone(new DateTimezone($_POST['timezone']));
+	echo $d1 -> format($_POST['format']);
+?>
+
+</body>
+
+</html>

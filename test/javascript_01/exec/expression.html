@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>객체(object)</title>
+</head>
+
+<body>
+
+<script>
+	
+	// 정규식객체 생성방법
+	var pattern = /a/;
+	var pattern.RegExp('a');
+	
+	// exec 정규식 추출
+	pattern.exec('asdf');
+	// test 정규식 test
+	pattern.test('asdf');
+
+	// match (matching)
+	var str = 'abcdef';
+	str.match(pattern);
+	
+	// replace 치환(var str ="abcdef" a를 변경/치환해준다)
+	str.replace(pattern , 'A');
+	
+	// 정규식 i 대소문자를 구분하지않음
+	var xi = /a/;
+	"Abcdef".match(xi);
+	
+	var oi = /a/i;
+	"Abcdef".match(oi);
+	
+	// 정규식 g 여러개의 요소를 찾아낼수있다.
+	var xg = /a/;
+	"abcdefa".match(xg);
+	
+	var og = /a/g;
+	"abcdefa".match(og);
+	
+	// ex ig
+	var ig = /a/ig;
+	"AbcdAa".match(ig);
+
+	// (\w+)문자를의미 \s 스페이스바(공백으로 인지)  // 캡쳐
+	var pattern = /(\w+)\s(\w+)/;
+	var str = "coding everybody";
+										// $ 문자열의 순서를 지정함.
+	var result = str.replace(pattern, "$2, $1");
+	console.log(result);
+	// console 결과 = everybody , coding
+
+</script>
+
+</body>
+</html>

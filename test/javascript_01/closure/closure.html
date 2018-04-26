@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<script src="http://www.hackersut.com/common/js/reMain/jquery-1.11.2.min.js"></script>
+	<title>closure(클로저)</title>
+</head>
+
+<body>
+
+<script>
+	
+	// 클로저는 내부함수에서 외부함수에있는 지역변수를 사용할수있게 하는것.
+	function outer(){
+		var title = 'coding everybody';
+		return function(){
+			console.log(title);
+		}
+	}
+	var inner = outer();
+	inner();
+	
+	// private 클로저
+	function factory_movie(title){
+		return {
+			get_title : function (){
+				return title;
+			},
+			set_title : function(_title){
+				title = _title
+			}
+		}
+	}
+	ghost = factory_movie('Ghost in the shell');
+	matrix = factory_movie('Matrix');
+
+	alert(ghost.get_title()); // Ghost in the shell
+	alert(matrix.get_title()); // Matrix
+
+	ghost.set_title('공각기동대'); // 공각기동대
+
+	alert(ghost.get_title()); // 공각기동대
+	alert(matrix.get_title()); // Matrix
+	
+	// 클로저 응용
+	var arr =[];
+	
+	for(var i =0; i < 5; i++){
+		arr[i] = function(id){
+			return function(){
+				return id;
+			}
+		}(i);
+	}
+	for(var index in arr){
+		console.log(arr[index]());
+	}
+	
+</script>
+
+</body>
+</html>

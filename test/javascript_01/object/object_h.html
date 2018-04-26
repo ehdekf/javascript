@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>객체(object)</title>
+</head>
+
+<body>
+
+<script>
+
+	Object.prototype.contain = function(needle){
+		for(var name in this){
+			if(this[name] === needle){
+				return true;
+			}
+		}
+		return false;
+	};
+	
+	var o  = {'name' : 'egoing' , 'city' : 'seoul'};
+	console.log(o.contain('egoing'));
+	
+	var a = ['egoing' , 'leezche' , 'graphittie'];
+	console.log(a.contain('leezche'));
+	
+	
+	// hasOwnProperty  객체에 포함되어있는 요소들만을 확인하는방법
+	for(var name in o){
+		if(o.hasOwnProperty(name)){
+			console.log(name);
+		}
+	}
+
+</script>
+
+</body>
+</html>

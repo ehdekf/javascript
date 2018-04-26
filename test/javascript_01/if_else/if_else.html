@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>조건문</title>
+</head>
+
+<body>
+
+<script>
+	var id = prompt('아이디를 입력해주세요.'),
+		password = prompt('비밀번호를 입력해주세요.');
+	
+	if(id === 'egoing'){
+		alert('아이디 일치')
+		if(password === '1111'){
+			alert('로그인 되었습니다.'+ id +'님 반갑습니다.')
+		}
+		else{
+			alert('비밀번호 불일치')
+		}
+	}
+	else{
+		alert('불일치')
+	}
+
+	//논리연산자
+	// if(id === 'egoing' && password === '1111'){
+	// 	alert('로그인 되었습니다.'+ id +'님 반갑습니다.')
+	// }
+	// else{
+	// 	alert('불일치')
+	// }
+	
+	//or 연산자
+	// if((id ==='test1' || id ==='test2' || id ==='test3') && password ==='1111'){
+	// 	alert('인증되었습니다.')
+	// }
+	// else{
+	// 	alert('인증불가')
+	// }
+	
+	// ! 부정의 의미
+	// if(id === !fasle){
+	// test ~~~~~
+	// }
+	
+	
+</script>
+
+</body>
+</html>

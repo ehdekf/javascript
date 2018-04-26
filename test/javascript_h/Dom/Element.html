@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Element</title>
+</head>
+
+<body>
+<img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/module/904/2240.png" alt="Element">
+</body>
+<script>
+	/* className , classList 식별자 */
+	// var active = getElmentById('active');
+	// console.log(active.id);
+	// active.id = deactive; // getElmentByid Name 변경
+	// console.log(active.id);
+	
+	// var active = getElmentClassName('marked currnt');
+	// console.log(active.className();)
+	
+	
+	// var active = getElmentById('active');
+	// active.classList;
+	//
+	// for(var i =0; i < active.classList.length ; i++){
+	// 	console.log(active.classList[i])
+	// }
+	// active.classList.add('important');
+	// active.classList.remove('important');
+	// active.classList.toggle('important');
+
+	/* // className , classList 식별자 */
+	
+	var list = document.getElmentByClassName('marked');
+	console.group('document');
+	for (var i =0; i < list.length; i++){
+		console.log(list[i].textContent);
+	}
+	console.groupEnd();
+
+	//
+	
+	console.group('active');
+	var active = document.getElmentById('active');
+	var list = active.getElmentByClassName('marked');
+	for (var i =0; i < list.length; i++){
+		console.log(list[i].textContent);
+	}
+	console.groupEnd();
+	
+	
+	
+</script>
+</html>

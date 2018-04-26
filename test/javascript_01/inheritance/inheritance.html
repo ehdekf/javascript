@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Javascript prototype</title>
+</head>
+
+<body>
+
+<script>
+	
+	function person(name){
+		this.name = name;
+	}
+	person.prototype.name = null;
+	person.prototype.introduce = function(){
+		return 'My name is' + this.name;
+	};
+	
+	// 부모 상속에 new생성자함수로 받아 부모에 속한 메서드를 사용가능하게한다.
+	function programmer(name){
+		this.name = name;
+	}
+	// 부모객체를 상속받는방법
+	programmer.prototype = new person();
+	
+	var p1 = new programmer('egoing');
+	console.log(p1.introduce() + 'thisName');
+	
+</script>
+
+</body>
+</html>

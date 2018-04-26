@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>apply</title>
+</head>
+
+<body>
+
+<script>
+	
+	// apply(numll , [배열index]) === null 값을 인자객체를 받아서 사용가능
+	var o1 = {val1 : 1, val2 : 2, val3 : 3},
+		o2 = {v1 : 10, v2 : 50, v3 : 70};
+
+	function sum(){
+		var _sum = 0;
+		for(name in this){
+			if(typeof this[name] !== 'function') // 조건문이용 사용
+			_sum += this[name];
+		}
+		return _sum;
+	}
+	console.log(sum.apply(o1));
+	console.log(sum.apply(o2));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>배열(array)</title>
+</head>
+
+<body>
+
+<script>
+	
+	// 배열을 정수로 만들어 랜덤하에 뿌려주는 작업
+	// Math.floor 소수점을 정수로 만드는방법
+	// Math.random 랜덤하게 뿌려주는 api
+
+	/*
+	var arr = new Array('seoul' , 'new york' , 'laderkh' , 'pusan' , 'Tsukuba');
+	function getRandomValue(arr){
+		var index = Math.floor(arr.length * Math.random());
+		return arr[index];
+	}
+	console.log(getRandomValue(arr));
+	*/
+
+	// 자바스크립트가 가지고있는 내장객체 Array 이용방법
+	Array.prototype.random = function(){
+		var index = Math.floor(this.length * Math.random());
+		return this[index];
+	};
+	var arr = new Array('seoul' , 'new york' , 'laderkh' , 'pusan' , 'Tsukuba');
+	
+	console.log(arr.random());
+	
+	// 추가할시 사용방법
+	var testArr = new Array('aaa' , 'bbbb' , 'ccc' , 'ddd' , 'eeee');
+	console.log(testArr.random());
+	
+	
+	
+</script>
+
+</body>
+</html>

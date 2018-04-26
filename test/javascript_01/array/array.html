@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>배열(array)</title>
+</head>
+
+<body>
+
+<script>
+
+	// 배열과 반복문의 조합
+	function membersBox(){
+		return ['test_01','test_02','test_03']
+	}
+	var member = membersBox();
+
+	// 추가
+	
+	// push()
+	//member.push('text_04');
+	//alert(member);
+
+	// concat(배열)
+	//member = member.concat(['text_04' , 'text_05']);
+	//alert(member);
+
+	// unshift() 배열 index[0]번에 들어감
+	//member.unshift('text_04');
+	//alert(member);
+
+	// splice()
+	//member.splice('index' , 'howmany' , '들어갈내용');
+	//member.splice('1' , '1' , 'test_04' , 'text_05');
+	//alert(member);
+
+	
+	// 제거
+	
+	// shift() 배열 index[0] 제거하는방법
+	//member.shift();
+	//alert(member);
+
+	// pop() 배열 index[3] 제일마지막 제거하는방법
+	//member.pop();
+	//alert(member);
+	
+	// 정렬
+
+	// sort() 알파벳숫자로 정렬
+	//member.sort();
+	//alert(member);
+
+	// reverse() 알파벳숫자로 역순환으로 정렬
+	//member.reverse();
+	//alert(member);
+
+	for(i = 0; i < member.length; i++){
+		console.log(member[i].toUpperCase());
+	}
+	
+	
+</script>
+
+</body>
+</html>

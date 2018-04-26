@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Node API</title>
+</head>
+
+<body>
+<img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/module/904/2242.png" alt="Element">
+</body>
+<script>
+	// nodeType , nodeName , childNode
+	function traverse(target , callback){
+		if(target.nodeType === Node.ELEMENT_NODE){
+			if(target.nodeName === 'A')
+			
+			callback(target);
+			var c = target.childNodes;
+			for(var i = 0; i < c.length; i++){
+				traverse(c[i] , callback);
+			}
+		}
+	}
+	traverse(document.getElementById('start') , function(elem){
+		console.log(elem)
+	}
+	
+	//
+	function callAppendChild(){
+		var target = document.getElementById('target'),
+			li = document.createElement('li'),
+			text = document.createTextNode('Javascript');
+		
+		li.appendChild(text);
+		target.appendChild(li);
+	}
+
+	function callInsertBefore(){
+		var target = document.getElementById('target'),
+			li = document.createElement('li'),
+			text = document.createTextNode('Javascript');
+
+		li.appendChild(text);
+		target.insertBefore(li , target.firstChild);
+	}
+</script>
+</html>

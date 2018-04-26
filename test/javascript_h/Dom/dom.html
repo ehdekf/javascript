@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>document</title>
+</head>
+
+<body>
+	<img src="https://s3-ap-northeast-1.amazonaws.com/opentutorialsfile/module/904/2234.png" alt="DOM Tree">
+</body>
+<script>
+	
+		var li = document.getElementById('active');
+		/* constructor 생성자함수 name 이름 */
+		console.log(li.constructor.name); // HTML LI Element 단수형
+											//   LI 아이디가 적용된요소를 표현됨
+
+		var lis = document.getElementsByTagName('li');
+		/* constructor 생성자함수 name 이름 */
+		console.log(lis.constructor.name); // HTML Collection 복수형 (유사배열)
+	
+		
+		// HTML Collection 복수형은 for문을 돌려사용가능하다.
+		/* console.group 은 개발자도구에서 확인시에 그룹핑해서 보여준다 */
+		console.group('befor');
+		var lis = document.getElementsByTagName('li');
+		for(var i = 0; i <lis.length; i++){
+			console.log(lis[i]);
+		}
+		/* console.groupEnd 는 그룹핑을 끝내는 문구이다. */
+		console.groupEnd();
+
+		console.group('after');
+		lis[1].parentNode.removeChild(lis[1]);
+		for(var i = 0; i <lis.length; i++){
+			console.log(lis[i]);
+		}
+		console.groupEnd();
+	
+		
+		
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>객체(object)</title>
+</head>
+
+<body>
+
+<script>
+	// 객체생성방법
+	var grade = {'test_01' : 10 , 'test_02' : 8 , 'text_03' : 80};
+
+	var grade2 = {};
+	grade2['text_01'] = 10;
+	grade2['text_02'] = 8;
+	grade2['text_03'] = 80;
+
+	var grade3 = new Object();
+	grade3['text_01'] = 10;
+	grade3['text_02'] = 8;
+	grade3['text_03'] = 80;
+	
+	
+	// 객체 for in문
+					//key	//value
+	var Object = {'egoing' : 10 , 'k8805' : 8, 'sorialgi' : 80};
+	for(var name in Object){
+		document.write("<li>name : " + name + "value" + Object[name] + "</li>");
+	}
+	
+	// 객체지향 프로그래밍 ( 리터널방식 )
+		// 인스턴스
+	var objectTest = {
+		// key
+		'list' : {'eging' : 10 , 'k8805' : 8, 'sorialgi' : 80}, // 프로퍼티
+		'show' : function(){
+			for(var name in this.list){
+				console.log('thisName ='+ name + 'thisList =' + this.list[name]);
+			}
+		}
+	};
+	// 함수호출 방법
+	objectTest['show']();
+	objectTest.show();
+
+	
+</script>
+
+</body>
+</html>
