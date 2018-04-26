@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>JSON</title>
+</head>
+
+<body>
+<!-- implode 배열을 문자화시켜 원소와 원소로 변경해주는방법 -->
+<?php
+	$timezones = ["Asia/Seoul" , "America/New_York"];
+	echo implode(',' , $timezones);
+?>
+
+<!-- JSON -->
+<?php
+$timezones = ["Asia/Seoul" , "America/New_York"];
+echo json_encode($timezones);
+?>
+<!-- 원복하는방법 decode -->
+
+<script>
+	var info = '{\
+		"font-size" : 30,\
+		"ingnored_packages" : [],\
+		"line_numvers" : false\
+	}'
+	
+	// JSON 파일에있는 문구들을 가져와 Object로 변환해준다  JSON.parse()
+	var infoObject =JSON.parse(info);
+	
+	// JSON 포멧에맞게 text 변형된다.
+	var infostr = JSON.stringify(infoObject);
+
+	
+	document.querySelector('input').addEventListener('click' , function(event){
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET' , '파일주소');
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4 && xhr.status === 200){
+				var _tzs = xhr.responseText;
+				// split 해당부분에 , 구분값을주어 배열로 변경한다.
+				var tzs = _tzs.split(',');
+				var _str = '';
+				for(var i = 0; i < tzs.length;  i++){
+					_str += '<li>'+tzs[i]+'</li>';
+				}
+				_str = '<ul>'+_str[i]+'</ul>';
+				document.querySelector('#time').innerHTML = _str;
+			}
+			}
+			xhr.send();
+		});
+
+	// JSON화 시켜서 받아오는방법
+	document.querySelector('input').addEventListener('click' , function(event){
+
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET' , '파일주소');
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4 && xhr.status === 200){
+				var _tzs = xhr.responseText;
+				// split 해당부분에 , 구분값을주어 배열로 변경한다.
+				var tzs = JSON.parse(_tzs); // 배열로 변환시켜주는것 parse
+				
+				var _str = '';
+				for(var i = 0; i < tzs.length;  i++){
+					_str += '<li>'+tzs[i]+'</li>';
+				}
+				_str = '<ul>'+_str[i]+'</ul>';
+				document.querySelector('#time').innerHTML = _str;
+			}
+		}
+		xhr.send();
+	});
+	
+</script>
+
+
+</body>
+
+</html>
